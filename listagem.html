@@ -1,0 +1,83 @@
+<html lang="en"><head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script>
+      function tableCreate() {
+        let url = 'http://localhost:8080/historico';
+          fetch(url)
+              .then(response => response.json())
+              .then(data => {
+              //let section = document.querySelector('section');
+              let body = document.getElementsByName('tbList')[0];
+              let tbl = document.createElement('table');
+              tbl.style.width = '100%';
+              tbl.className = 'table bg-light mt-3';
+              tbl.setAttribute('border', '1');
+              let tbdy = document.createElement('tbody');
+              for (let i = 0; i < data.length; i++) {
+                  let tr = document.createElement('tr');
+                  for (let j = 0; j < 3; j++) {
+                  if (i == 0) {
+                      let th = document.createElement('th');
+                      th.appendChild(document.createTextNode(Object.keys(data[i])[j]))
+                      tr.appendChild(th);
+                  } else {
+                      let td = document.createElement('td');
+                      td.appendChild(document.createTextNode(Object.values(data[i])[j]))
+                      tr.appendChild(td);
+                  }
+                  }
+                  tbdy.appendChild(tr);
+              }
+              tbl.appendChild(tbdy);
+              //section.appendChild(tbl);
+              body.appendChild(tbl)
+              });
+             
+    }
+    tableCreate();
+    </script>
+  <title>cadastro de cursos</title>
+<style type="text/css">.vue-notification-group{display:block;position:fixed;z-index:5000}.vue-notification-wrapper{display:block;overflow:hidden;width:100%;margin:0;padding:0}.notification-title{font-weight:600}.vue-notification-template{background:#fff}.vue-notification,.vue-notification-template{display:block;box-sizing:border-box;text-align:left}.vue-notification{font-size:12px;padding:10px;margin:0 5px 5px;color:#fff;background:#44a4fc;border-left:5px solid #187fe7}.vue-notification.warn{background:#ffb648;border-left-color:#f48a06}.vue-notification.error{background:#e54d42;border-left-color:#b82e24}.vue-notification.success{background:#68cd86;border-left-color:#42a85f}.vn-fade-enter-active,.vn-fade-leave-active,.vn-fade-move{transition:all .5s}.vn-fade-enter,.vn-fade-leave-to{opacity:0}</style></head>
+<body class="bg-light text-light">
+
+  <div class="container">
+
+    <div class="jumbotron bg-primary">
+      
+      <h1 style="color:black;">HISTORICO DE PESQUISAS</h1>
+    </div>
+
+
+<main>
+
+
+<section>
+  <a href="index.html">
+    <button class="btn btn-primary mb-3">Voltar</button>
+  </a>
+</section>
+
+<section name="tbList">
+
+
+
+
+</section>
+
+
+</main>
+  <!-- .container -->
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+
+</body></html>
